@@ -1,5 +1,5 @@
 {
-  "name": "magecrafts/wysiwygmedi",
+  "name": "magecrafts/wysiwygmedia",
   "description": "upload media to magento from media gallery or wysiwyg and add video tag to wysiwyg content",
   "type": "magento2-module",
   "version": "1.0.0",
