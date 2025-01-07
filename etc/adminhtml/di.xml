@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\MediaGalleryUi\Ui\Component\Control\DeleteAssets">
+        <plugin name="change_delete_asset_button_label"
+                type="Magecrafts\WysiwygMedia\Plugin\ChangeDeleteAssetButtonLabel"/>
+    </type>
+    <type name="Magento\MediaGalleryUi\Ui\Component\Control\UploadAssets">
+        <plugin name="change_upload_asset_button_label"
+                type="Magecrafts\WysiwygMedia\Plugin\ChangeUploadAssetButtonLabel"/>
+    </type>
+
+    <type name="Magento\MediaGalleryIntegration\Plugin\SaveImageInformation">
+        <arguments>
+            <argument name="imageExtensions" xsi:type="array">
+                <item name="mp4" xsi:type="string">mp4</item>
+                <item name="mov" xsi:type="string">mov</item>
+                <item name="pdf" xsi:type="string">pdf</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\MediaGalleryRenditions\Model\Queue\FetchRenditionPathsBatches">
+        <arguments>
+            <argument name="fileExtensions" xsi:type="array">
+                <item name="mp4" xsi:type="string">mp4</item>
+                <item name="mov" xsi:type="string">mov</item>
+                <item name="pdf" xsi:type="string">pdf</item>
+            </argument>
+        </arguments>
+    </type>
+
+</config>

@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">    <!-- Logger -->
+    <type name="Magento\Cms\Model\Wysiwyg\Images\Storage">
+        <arguments>
+            <argument name="extensions" xsi:type="array">
+                <item name="allowed" xsi:type="array">
+                    <item name="pdf" xsi:type="string">application/pdf</item>
+                    <item name="mov" xsi:type="string">video/quicktime</item>
+                    <item name="mp4" xsi:type="string">video/mp4</item>
+                </item>
+                <item name="image_allowed" xsi:type="array">
+                    <item name="pdf" xsi:type="string">application/pdf</item>
+                    <item name="mov" xsi:type="string">video/quicktime</item>
+                    <item name="mp4" xsi:type="string">video/mp4</item>
+                </item>
+                <item name="media_allowed" xsi:type="array">
+                    <item name="mov" xsi:type="string">video/quicktime</item>
+                    <item name="mp4" xsi:type="string">video/mp4</item>
+                    <item name="pdf" xsi:type="string">application/pdf</item>
+                </item>
+            </argument>
+        </arguments>
+        <plugin name="Process_wysiwyg_media_storage_if_not_image"
+                type="Magecrafts\WysiwygMedia\Plugin\ProcessWysiwygMediaStorage" disabled="false"/>
+    </type>
+    <type name="Magento\MediaGallerySynchronization\Model\FetchMediaStorageFileBatches">
+        <arguments>
+            <argument name="fileExtensions" xsi:type="array">
+                <item name="mov" xsi:type="string">mov</item>
+                <item name="mp4" xsi:type="string">mp4</item>
+                <item name="pdf" xsi:type="string">pdf</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Cms\Helper\Wysiwyg\Images">
+        <plugin name="add_video_tag_in_wysiwyg"
+                type="Magecrafts\WysiwygMedia\Plugin\AddVideoTagWysiwyg"/>
+    </type>
+
+    <type name="Magento\MediaGalleryUi\Ui\Component\Listing\Columns\Url">
+        <plugin name="plugin_to_add_icon_on_video_and_pdf"
+                type="Magecrafts\WysiwygMedia\Plugin\Ui\Component\Listing\Columns\Url" sortOrder="10" disabled="false"/>
+    </type>
+</config>
